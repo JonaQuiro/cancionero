@@ -19,20 +19,51 @@ body {
     position: sticky;
     top: 0;
     background: #111;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
     z-index: 10;
 }
 
-#header button {
-    padding: 10px 14px;
-    font-size: 16px;
+/* FILA 1 */
+.top-row {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 6px;
 }
 
 #titulo {
-    font-size: 16px;
+    flex: 1;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* FILA 2 */
+.controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+    justify-content: center;
+}
+
+/* BOTONES */
+button {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* VELOCIDAD */
+#velocidadBox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#velocidadBox input {
+    flex: 1;
 }
 
 /* CONTENIDO */
@@ -54,45 +85,15 @@ body {
     font-size: clamp(18px, 5vw, 24px);
 }
 
-/* CONTROLES */
-.controls {
-    position: fixed;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: opacity 0.3s;
-}
+/* DESKTOP */
+@media (min-width: 768px) {
+    #titulo {
+        font-size: 18px;
+    }
 
-.controls.oculto {
-    opacity: 0;
-}
-
-/* BOTONES */
-.botones {
-    display: flex;
-    gap: 20px;
-}
-
-button {
-    padding: 15px 25px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* VELOCIDAD */
-#velocidadBox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#velocidadBox input {
-    width: 150px;
+    button {
+        font-size: 16px;
+    }
 }
 </style>
 </head>
@@ -100,33 +101,34 @@ button {
 <body>
 
 <div id="header">
-    <button onclick="volver()">⬅</button>
-    <span id="titulo"></span>
-    <button onclick="toggleFullscreen()">⛶</button>
+
+    <!-- FILA 1 -->
+    <div class="top-row">
+        <button onclick="volver()">⬅</button>
+        <span id="titulo"></span>
+        <button onclick="toggleFullscreen()">⛶</button>
+    </div>
+
+    <!-- FILA 2 -->
+    <div class="controls-row">
+        <button onclick="startScroll()">▶</button>
+        <button onclick="stopScroll()">⏸</button>
+
+        <div id="velocidadBox">
+            <button onclick="cambiarVelocidad(-5)">-</button>
+            <input type="range" id="velocidad" min="10" max="100" value="50">
+            <button onclick="cambiarVelocidad(5)">+</button>
+            <span id="velLabel">50</span>
+        </div>
+    </div>
+
 </div>
 
 <div id="contenido"></div>
 
-<div class="controls" id="controls">
-    
-    <div class="botones">
-        <button onclick="startScroll()">▶</button>
-        <button onclick="stopScroll()">⏸</button>
-    </div>
-
-    <div id="velocidadBox">
-        <button onclick="cambiarVelocidad(-5)">-</button>
-        <input type="range" id="velocidad" min="10" max="100" value="50">
-        <button onclick="cambiarVelocidad(5)">+</button>
-        <span id="velLabel">50</span>
-    </div>
-
-</div>
-
 <script>
 let scrollInterval;
-let velocidad = 50; // más alto = más rápido
-let controlsVisible = true;
+let velocidad = 50;
 
 // PARAMS
 const params = new URLSearchParams(window.location.search);
@@ -151,28 +153,21 @@ function toggleFullscreen() {
     }
 }
 
-// OCULTAR CONTROLES AL TOCAR
-document.body.addEventListener("click", () => {
-    controlsVisible = !controlsVisible;
-    document.getElementById("controls").classList.toggle("oculto", !controlsVisible);
-});
-
-// CARGAR CANCIÓN
+// CARGAR
 fetch(archivo)
     .then(r => r.text())
     .then(texto => mostrar(texto));
 
-// DETECTAR ACORDES
+// ACORDES
 function esLineaDeAcordes(l) {
     return /^(\s*[A-G](#|b)?m?\s*)+$/.test(l.trim());
 }
 
-// PINTAR ACORDES
 function pintar(l) {
     return l.replace(/\b([A-G](#|b)?m?)\b/g, '<span class="acorde">$1</span>');
 }
 
-// MOSTRAR CONTENIDO
+// MOSTRAR
 function mostrar(texto) {
     let html = "";
 
@@ -184,14 +179,13 @@ function mostrar(texto) {
         }
     });
 
-    document.getElementById("contenido").innerHTML = html;
+    contenido.innerHTML = html;
 }
 
 // SCROLL
 function startScroll() {
     stopScroll();
-
-    let intervalo = 110 - velocidad; // invertido correctamente
+    let intervalo = 110 - velocidad;
 
     scrollInterval = setInterval(() => {
         window.scrollBy(0, 1);
@@ -215,7 +209,7 @@ slider.addEventListener("input", () => {
     }
 });
 
-// BOTONES + -
+// BOTONES
 function cambiarVelocidad(delta) {
     velocidad = Math.min(100, Math.max(10, velocidad + delta));
     slider.value = velocidad;

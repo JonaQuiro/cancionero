@@ -42,8 +42,14 @@ header {
     border-radius: 5px;
 }
 
+/* CONTENEDOR SCROLL */
+#contenedorLista {
+    overflow-x: auto;
+}
+
 /* LISTA */
 #lista {
+    min-width: 600px; /* 👈 fuerza ancho mínimo para activar scroll */
     padding-bottom: 80px;
 }
 
@@ -59,6 +65,7 @@ header {
     border-bottom: 1px solid #222;
     font-size: 16px;
     cursor: pointer;
+    white-space: nowrap; /* 👈 evita que el texto se corte */
 }
 
 .cancion:hover {
@@ -78,6 +85,14 @@ header {
     #topbar select {
         flex: 1;
     }
+
+    #lista {
+        min-width: 100%; /* en desktop no hace falta scroll */
+    }
+
+    .cancion {
+        white-space: normal;
+    }
 }
 </style>
 </head>
@@ -92,7 +107,10 @@ header {
     <select id="filtroGenero"><option value="">Géneros</option></select>
 </div>
 
-<div id="lista"></div>
+<!-- 👇 CONTENEDOR NUEVO -->
+<div id="contenedorLista">
+    <div id="lista"></div>
+</div>
 
 <script>
 let canciones = [];
