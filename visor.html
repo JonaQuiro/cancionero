@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Visor 🎸</title>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: monospace;
+}
+
+/* HEADER */
+#header {
+    position: sticky;
+    top: 0;
+    background: #111;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+#header button {
+    padding: 10px 14px;
+    font-size: 16px;
+}
+
+#titulo {
+    font-size: 16px;
+}
+
+/* CONTENIDO */
+#contenido {
+    padding: 15px;
+    white-space: pre;
+    line-height: 1.6;
+}
+
+/* TEXTO */
+.linea-acorde {
+    color: #00ffcc;
+    font-weight: bold;
+    font-size: clamp(20px, 6vw, 28px);
+}
+
+.linea-letra {
+    margin-bottom: 12px;
+    font-size: clamp(18px, 5vw, 24px);
+}
+
+/* CONTROLES */
+.controls {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.3s;
+}
+
+.controls.oculto {
+    opacity: 0;
+}
+
+/* BOTONES */
+.botones {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* VELOCIDAD */
+#velocidadBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#velocidadBox input {
+    width: 150px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+    <button onclick="volver()">⬅</button>
+    <span id="titulo"></span>
+    <button onclick="toggleFullscreen()">⛶</button>
+</div>
+
+<div id="contenido"></div>
+
+<div class="controls" id="controls">
+    
+    <div class="botones">
+        <button onclick="startScroll()">▶</button>
+        <button onclick="stopScroll()">⏸</button>
+    </div>
+
+    <div id="velocidadBox">
+        <button onclick="cambiarVelocidad(-5)">-</button>
+        <input type="range" id="velocidad" min="10" max="100" value="50">
+        <button onclick="cambiarVelocidad(5)">+</button>
+        <span id="velLabel">50</span>
+    </div>
+
+</div>
+
+<script>
+let scrollInterval;
+let velocidad = 50; // más alto = más rápido
+let controlsVisible = true;
+
+// PARAMS
+const params = new URLSearchParams(window.location.search);
+const archivo = params.get("archivo");
+const titulo = params.get("titulo");
+const artista = params.get("artista");
+
+document.getElementById("titulo").innerText = `${titulo} - ${artista}`;
+
+// VOLVER
+function volver() {
+    window.close();
+    window.location.href = "index.html";
+}
+
+// FULLSCREEN
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// OCULTAR CONTROLES AL TOCAR
+document.body.addEventListener("click", () => {
+    controlsVisible = !controlsVisible;
+    document.getElementById("controls").classList.toggle("oculto", !controlsVisible);
+});
+
+// CARGAR CANCIÓN
+fetch(archivo)
+    .then(r => r.text())
+    .then(texto => mostrar(texto));
+
+// DETECTAR ACORDES
+function esLineaDeAcordes(l) {
+    return /^(\s*[A-G](#|b)?m?\s*)+$/.test(l.trim());
+}
+
+// PINTAR ACORDES
+function pintar(l) {
+    return l.replace(/\b([A-G](#|b)?m?)\b/g, '<span class="acorde">$1</span>');
+}
+
+// MOSTRAR CONTENIDO
+function mostrar(texto) {
+    let html = "";
+
+    texto.split("\n").forEach(l => {
+        if (esLineaDeAcordes(l)) {
+            html += `<div class="linea-acorde">${pintar(l)}</div>`;
+        } else {
+            html += `<div class="linea-letra">${l}</div>`;
+        }
+    });
+
+    document.getElementById("contenido").innerHTML = html;
+}
+
+// SCROLL
+function startScroll() {
+    stopScroll();
+
+    let intervalo = 110 - velocidad; // invertido correctamente
+
+    scrollInterval = setInterval(() => {
+        window.scrollBy(0, 1);
+    }, intervalo);
+}
+
+function stopScroll() {
+    clearInterval(scrollInterval);
+}
+
+// SLIDER
+const slider = document.getElementById("velocidad");
+const label = document.getElementById("velLabel");
+
+slider.addEventListener("input", () => {
+    velocidad = parseInt(slider.value);
+    label.innerText = velocidad;
+
+    if (scrollInterval) {
+        startScroll();
+    }
+});
+
+// BOTONES + -
+function cambiarVelocidad(delta) {
+    velocidad = Math.min(100, Math.max(10, velocidad + delta));
+    slider.value = velocidad;
+    label.innerText = velocidad;
+
+    if (scrollInterval) {
+        startScroll();
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+[
+  {
+    "titulo": "Por eso vine",
+    "artista": "Paulo Londra",
+    "archivo": "canciones/por_eso_vine.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Amor de vago",
+    "artista": "Malandro de América ft La T y la M",
+    "archivo": "canciones/amor_de_vago.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Cumbia"
+  },
+  {
+    "titulo": "El fantasma",
+    "artista": "Árbol",
+    "archivo": "canciones/el_fantasma.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Ella dijo",
+    "artista": "Estelares",
+    "archivo": "canciones/ella_dijo.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Fuego",
+    "artista": "Intoxicados",
+    "archivo": "canciones/fuego.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Será",
+    "artista": "Las Pelotas",
+    "archivo": "canciones/será.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Me gusta",
+    "artista": "Ciro y los Persas",
+    "archivo": "canciones/me_gusta.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Mil días",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/mil_dias.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Pastillitas del olvido",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/pastillitas_del_olvido.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "La ensalada",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/la_ensalada.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Flaca",
+    "artista": "Andrés Calamaro",
+    "archivo": "canciones/flaca.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Amanece",
+    "artista": "Anuel AA",
+    "archivo": "canciones/amanece.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Mojada",
+    "artista": "Vilma Palma y Vampiros",
+    "archivo": "canciones/mojada.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Auto rojo",
+    "artista": "Vilma Palma y Vampiros",
+    "archivo": "canciones/auto_rojo.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Por eso vine",
+    "artista": "Paulo Londra",
+    "archivo": "canciones/por_eso_vine.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Amor de vago",
+    "artista": "Malandro de América ft La T y la M",
+    "archivo": "canciones/amor_de_vago.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Cumbia"
+  },
+  {
+    "titulo": "El fantasma",
+    "artista": "Árbol",
+    "archivo": "canciones/el_fantasma.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Ella dijo",
+    "artista": "Estelares",
+    "archivo": "canciones/ella_dijo.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Fuego",
+    "artista": "Intoxicados",
+    "archivo": "canciones/fuego.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Será",
+    "artista": "Las Pelotas",
+    "archivo": "canciones/será.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Me gusta",
+    "artista": "Ciro y los Persas",
+    "archivo": "canciones/me_gusta.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Mil días",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/mil_dias.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Pastillitas del olvido",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/pastillitas_del_olvido.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "La ensalada",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/la_ensalada.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Flaca",
+    "artista": "Andrés Calamaro",
+    "archivo": "canciones/flaca.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Amanece",
+    "artista": "Anuel AA",
+    "archivo": "canciones/amanece.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Mojada",
+    "artista": "Vilma Palma y Vampiros",
+    "archivo": "canciones/mojada.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Auto rojo",
+    "artista": "Vilma Palma y Vampiros",
+    "archivo": "canciones/auto_rojo.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Andas en mi cabeza",
+    "artista": "Chino y Nacho",
+    "archivo": "canciones/andas_en_mi_cabeza.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Reggaeton"
+  },
+  {
+    "titulo": "Ni una, ni dos",
+    "artista": "BM",
+    "archivo": "canciones/niuna_ni_dos.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Cumbia"
+  },
+  {
+    "titulo": "Donde estas",
+    "artista": "Khea",
+    "archivo": "canciones/donde_estas.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Bicho de ciudad",
+    "artista": "Los Piojos",
+    "archivo": "canciones/bicho_de_ciudad.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "La bachata",
+    "artista": "Manuel Turizo",
+    "archivo": "canciones/la_bachata.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Avanti morocha",
+    "artista": "Caballeros de la quema",
+    "archivo": "canciones/avanti_morocha.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "She dont give a fo",
+    "artista": "Duki",
+    "archivo": "canciones/she_dont_give_a_fo.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Quevedo bzrp session",
+    "artista": "Quevedo",
+    "archivo": "canciones/quevedo_bzrp_session.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "Caraluna",
+    "artista": "Bacilos",
+    "archivo": "canciones/caraluna.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Pop"
+  },
+  {
+    "titulo": "Bailando",
+    "artista": "Enrique Iglesias",
+    "archivo": "canciones/bailando.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Pop"
+  },
+  {
+    "titulo": "Tu jardin con enanitos",
+    "artista": "Roze",
+    "archivo": "canciones/tu_jardin_con_enanitos.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Cumbia"
+  },
+  {
+    "titulo": "Dime que te paso",
+    "artista": "Wisin y Yandel",
+    "archivo": "canciones/dime_que_te_paso.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Urbano"
+  },
+  {
+    "titulo": "A ti",
+    "artista": "Ricardo Arjona",
+    "archivo": "canciones/a_ti.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Pop"
+  }
+]

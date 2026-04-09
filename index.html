@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cancionero 🎸</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: monospace;
+    background: #111;
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    background: #000;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* FILTROS */
+#topbar {
+    padding: 10px;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#topbar input,
+#topbar select {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* LISTA */
+#lista {
+    padding-bottom: 80px;
+}
+
+.genero {
+    background: #222;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cancion {
+    padding: 15px;
+    border-bottom: 1px solid #222;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancion:hover {
+    background: #333;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    #topbar {
+        flex-direction: row;
+    }
+
+    #topbar input {
+        flex: 2;
+    }
+
+    #topbar select {
+        flex: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>Cancionero 🎸</header>
+
+<div id="topbar">
+    <input type="text" id="busqueda" placeholder="Buscar canción...">
+    <select id="filtroArtista"><option value="">Artistas</option></select>
+    <select id="filtroGenero"><option value="">Géneros</option></select>
+</div>
+
+<div id="lista"></div>
+
+<script>
+let canciones = [];
+
+fetch('canciones.json')
+    .then(r => r.json())
+    .then(data => {
+        canciones = data;
+        cargarFiltros();
+        renderLista();
+    });
+
+function cargarFiltros() {
+    const artistas = [...new Set(canciones.map(c => c.artista))];
+    const generos = [...new Set(canciones.map(c => c.genero))];
+
+    artistas.forEach(a => {
+        let opt = document.createElement("option");
+        opt.value = a;
+        opt.textContent = a;
+        filtroArtista.appendChild(opt);
+    });
+
+    generos.forEach(g => {
+        let opt = document.createElement("option");
+        opt.value = g;
+        opt.textContent = g;
+        filtroGenero.appendChild(opt);
+    });
+}
+
+busqueda.oninput = renderLista;
+filtroArtista.onchange = renderLista;
+filtroGenero.onchange = renderLista;
+
+function renderLista() {
+    lista.innerHTML = "";
+
+    let texto = busqueda.value.toLowerCase();
+    let art = filtroArtista.value;
+    let gen = filtroGenero.value;
+
+    let filtradas = canciones.filter(c =>
+        (!texto || c.titulo.toLowerCase().includes(texto)) &&
+        (!art || c.artista === art) &&
+        (!gen || c.genero === gen)
+    );
+
+    let grupos = {};
+    filtradas.forEach(c => {
+        if (!grupos[c.genero]) grupos[c.genero] = [];
+        grupos[c.genero].push(c);
+    });
+
+    for (let g in grupos) {
+        let divGen = document.createElement("div");
+        divGen.className = "genero";
+        divGen.textContent = g;
+        lista.appendChild(divGen);
+
+        grupos[g].forEach(c => {
+            let div = document.createElement("div");
+            div.className = "cancion";
+            div.textContent = `🎸 ${c.titulo} - ${c.artista}`;
+
+            div.onclick = () => {
+                window.open(
+                    `visor.html?archivo=${c.archivo}&titulo=${encodeURIComponent(c.titulo)}&artista=${encodeURIComponent(c.artista)}`
+                );
+            };
+
+            lista.appendChild(div);
+        });
+    }
+}
+</script>
+
+</body>
+</html>
