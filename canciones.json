@@ -38,6 +38,13 @@
     "tono": "C",
     "capo": 0,
     "genero": "Rock"
+  },{
+    "titulo": "Casi sin pensar",
+    "artista": "Intoxicados",
+    "archivo": "canciones/casi_sin_pensar.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
   },
   {
     "titulo": "Será",
@@ -59,6 +66,14 @@
     "titulo": "Mil días",
     "artista": "Tan Biónica",
     "archivo": "canciones/mil_dias.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+    {
+    "titulo": "Loca",
+    "artista": "Tan Biónica",
+    "archivo": "canciones/loca.txt",
     "tono": "C",
     "capo": 0,
     "genero": "Rock"
@@ -234,7 +249,7 @@
   {
     "titulo": "Ni una, ni dos",
     "artista": "BM",
-    "archivo": "canciones/niuna_nidos.txt",
+    "archivo": "canciones/niuna_ni_dos.txt",
     "tono": "C",
     "capo": 0,
     "genero": "Cumbia"
@@ -326,5 +341,37 @@
     "tono": "C",
     "capo": 0,
     "genero": "Pop"
+  },
+  {
+    "titulo": "Mi Enfermedad",
+    "artista": "Fabiana Cantilo",
+    "archivo": "canciones/mi_enfermedad.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Tan Distintos",
+    "artista": "Guasones",
+    "archivo": "canciones/tan_distintos.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Paloma",
+    "artista": "Andrés Calamaro",
+    "archivo": "canciones/paloma.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Pasos al Costado",
+    "artista": "Turf",
+    "archivo": "canciones/pasos_al_costado.txt",
+    "tono": "D",
+    "capo": 0,
+    "genero": "Rock"
   }
 ]
