@@ -49,7 +49,7 @@
   {
     "titulo": "Será",
     "artista": "Las Pelotas",
-    "archivo": "canciones/será.txt",
+    "archivo": "canciones/sera.txt",
     "tono": "C",
     "capo": 0,
     "genero": "Rock"
@@ -373,5 +373,231 @@
     "tono": "D",
     "capo": 0,
     "genero": "Rock"
+  },
+  {
+    "titulo": "Beatle",
+    "artista": "Ataque 77",
+    "archivo": "canciones/beatle.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Osito de Peluche de Taiwan",
+    "artista": "Los auténticos decadentes",
+    "archivo": "canciones/osito_de_peluche_de_taiwan.txt",
+    "tono": "D",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Amor de Verano",
+    "artista": "Airbag",
+    "archivo": "canciones/amor_de_verano.txt",
+    "tono": "D",
+    "capo": 1,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Solo aquí",
+    "artista": "Airbag",
+    "archivo": "canciones/solo_aqui.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Cicatrices",
+    "artista": "Airbag",
+    "archivo": "canciones/cicatrices.txt",
+    "tono": "G",
+    "capo": 1,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Tan Lejos",
+    "artista": "NTVG",
+    "archivo": "canciones/tan_lejos.txt",
+    "tono": "G",
+    "capo": 0,
+    "genero": "Rock"
+  },
+  {
+    "titulo": "Claramente",
+    "artista": "Chano",
+    "archivo": "canciones/claramente.txt",
+    "tono": "C",
+    "capo": 3,
+    "genero": "Rock"
+  },{
+    "titulo": "Magia Blanca",
+    "artista": "Turf",
+    "archivo": "canciones/magia_blanca.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "En redondel",
+    "artista": "Ella es Tan Cargosa",
+    "archivo": "canciones/en_redondel.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Seminare",
+    "artista": "Serú Giran",
+    "archivo": "canciones/seminare.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Para no verte mas",
+    "artista": "La Mosca",
+    "archivo": "canciones/para_no_verte_mas.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Campanas en la noche",
+    "artista": "Los Tipitos",
+    "archivo": "canciones/campana_en_la_noche.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Reyes de la noche",
+    "artista": "Guasones",
+    "archivo": "canciones/reyes_de_la_noche.txt",
+    "tono": "C",
+    "capo": 2,
+    "genero": "Rock"
+  },{
+    "titulo": "El sensei",
+    "artista": "LPDA",
+    "archivo": "canciones/el_sensei.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Pétalos",
+    "artista": "Tan Bionica",
+    "archivo": "canciones/petalos.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Verano Traidor",
+    "artista": "Vilma Palma y Vampiros",
+    "archivo": "canciones/verano_traidor.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "La Flaca",
+    "artista": "Jarabe de Palo",
+    "archivo": "canciones/la_flaca.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Canciones",
+    "artista": "Conociendo Rusia",
+    "archivo": "canciones/canciones.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Jet Love",
+    "artista": "Conociendo Rusia",
+    "archivo": "canciones/jet_love.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Un día Perfecto",
+    "artista": "Estelares",
+    "archivo": "canciones/un_dia_perfecto.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "M.A.",
+    "artista": "B.M.",
+    "archivo": "canciones/ma.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Cumbia"
+  },{
+    "titulo": "Arde la ciudad",
+    "artista": "La mancha de Rolando",
+    "archivo": "canciones/arde_la_ciudad.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Rezo por vos",
+    "artista": "Charly García",
+    "archivo": "canciones/rezo_por_vos.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Muy despacito",
+    "artista": "Los Piojos",
+    "archivo": "canciones/muy_despacito.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Nunca me enseñaste",
+    "artista": "Jovenes Pordioseros",
+    "archivo": "canciones/nunca_me_ensenaste.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Cuando no estás",
+    "artista": "Andrés Calamaro",
+    "archivo": "canciones/cuando_no_estas.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Descontrolado",
+    "artista": "Jovenes Pordioseros",
+    "archivo": "canciones/descontrolado.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Mi Gin Tonic",
+    "artista": "Andrés Calamaro",
+    "archivo": "canciones/mi_gin_tonic.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Un poco de amor frances",
+    "artista": "Redondos",
+    "archivo": "canciones/un_poco_de_amor_frances.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]
