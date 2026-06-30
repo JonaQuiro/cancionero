@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visor</title>
+    <style>
+        :root{--tam-acorde:30px;--tam-letra:26px}
+        body{margin:0;background:#000;color:#fff;font-family:Arial}
+        #header{position:sticky;top:0;background:#111;border-bottom:1px solid #333;z-index:100}
+        .top-row{display:grid;grid-template-columns:50px 1fr 50px;align-items:center;padding:10px}
+        #titulo{text-align:center;font-weight:bold;font-size:1.2rem}
+        .controls-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:10px;background:#1a1a1a}
+        button{padding:10px 14px;font-size:1rem;cursor:pointer}
+        #velocidadBox{display:flex;align-items:center;gap:8px}
+        #contenido{max-width:900px;margin:20px auto;padding:20px;font-family:Consolas,Courier New,monospace;white-space:pre;line-height:1.7}
+        .linea-acorde{font-size:var(--tam-acorde);color:#aaa;margin:8px 0 4px 0}
+        .linea-letra{font-size:var(--tam-letra);margin-bottom:16px}
+        .acorde{color:#FFD54F;font-weight:bold}
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <div class="top-row">
+            <button onclick="volver()">⬅ Volver</button>
+            <span id="titulo">Visor de Canciones</span>
+            <button onclick="toggleFullscreen()">⛶</button>
+        </div>
+
+        <div class="controls-row">
+            <button onclick="startScroll()">▶ Reproducir</button>
+            <button onclick="stopScroll()">⏸ Pausar</button>
+
+            <div id="velocidadBox">
+                <button onclick="cambiarVelocidad(-2)">−</button>
+                <input id="velocidad" type="range" min="1" max="200" value="30">
+                <button onclick="cambiarVelocidad(2)">+</button>
+                <span id="velLabel">30</span>
+            </div>
+
+            <button onclick="cambiarFuente(-10)">A−</button>
+            <button onclick="cambiarFuente(10)">A+</button>
+        </div>
+    </div>
+
+    <div id="contenido"></div>
+    <script>
+    let velocidad = +localStorage.getItem("velocidad") || 30;
+    let tamanio = +localStorage.getItem("tamanio") || 100;
+
+    let scrolling = false;
+    let ultimoTiempo = 0;
+    let posicion = window.scrollY;
+
+    const dom = {
+        slider: document.getElementById("velocidad"),
+        label: document.getElementById("velLabel"),
+        titulo: document.getElementById("titulo"),
+        contenido: document.getElementById("contenido")
+    };
+
+    const regexAcorde = /^[A-G](?:#|b)?(?:maj|min|m|dim|aug|sus|add)?\d*(?:\/[A-G](?:#|b)?)?$/;
+    const regexBuscar = /\b([A-G](?:#|b)?(?:maj|min|m|dim|aug|sus|add)?\d*(?:\/[A-G](?:#|b)?)?)\b/g;
+
+    function aplicarFuente() {
+        document.documentElement.style.setProperty("--tam-acorde", (30 * tamanio / 100) + "px");
+        document.documentElement.style.setProperty("--tam-letra", (26 * tamanio / 100) + "px");
+        localStorage.setItem("tamanio", tamanio);
+    }
+
+    function loop(timestamp) {
+
+        if (!scrolling) return;
+
+        if (!ultimoTiempo)
+            ultimoTiempo = timestamp;
+
+        const delta = timestamp - ultimoTiempo;
+        ultimoTiempo = timestamp;
+
+        // Mantiene la posición con decimales
+        posicion += velocidad * delta / 1000;
+
+        window.scrollTo({
+            top: posicion,
+            behavior: "auto"
+        });
+
+        requestAnimationFrame(loop);
+    }
+
+    function startScroll() {
+
+        if (scrolling) return;
+
+        scrolling = true;
+        ultimoTiempo = 0;
+
+        // Toma la posición actual por si el usuario movió el scroll manualmente
+        posicion = window.scrollY;
+
+        requestAnimationFrame(loop);
+    }
+
+    function stopScroll() {
+        scrolling = false;
+    }
+
+    function cambiarVelocidad(delta) {
+
+        velocidad = Math.max(1, Math.min(200, velocidad + delta));
+
+        dom.slider.value = velocidad;
+        dom.label.textContent = velocidad;
+
+        localStorage.setItem("velocidad", velocidad);
+    }
+
+    function cambiarFuente(delta) {
+
+        tamanio = Math.max(70, Math.min(180, tamanio + delta));
+
+        aplicarFuente();
+    }
+
+    function volver() {
+        history.back();
+    }
+
+    function toggleFullscreen() {
+
+        if (document.fullscreenElement)
+            document.exitFullscreen();
+        else
+            document.documentElement.requestFullscreen();
+    }
+
+    // ===========================
+    // Cargar canción
+    // ===========================
+
+    const params = new URLSearchParams(location.search);
+
+    dom.titulo.textContent =
+        `${params.get("titulo") || ""} - ${params.get("artista") || ""}`;
+
+    const archivo = params.get("archivo");
+
+    if (archivo) {
+
+        fetch(archivo)
+            .then(r => r.text())
+            .then(text => {
+
+                const html = text
+                    .split(/\r?\n/)
+                    .map(l => {
+
+                        const t = l.trim();
+
+                        if (t && t.split(/\s+/).every(x => regexAcorde.test(x))) {
+
+                            return `<div class="linea-acorde">${
+                                l.replace(regexBuscar, '<span class="acorde">$1</span>')
+                            }</div>`;
+                        }
+
+                        return `<div class="linea-letra">${l}</div>`;
+                    })
+                    .join("");
+
+                dom.contenido.innerHTML = html;
+            });
+    }
+
+    dom.slider.value = velocidad;
+    dom.label.textContent = velocidad;
+
+    dom.slider.oninput = () => {
+
+        velocidad = +dom.slider.value;
+        dom.label.textContent = velocidad;
+
+        localStorage.setItem("velocidad", velocidad);
+    };
+
+    aplicarFuente();
+</script>
+</body>
+</html>

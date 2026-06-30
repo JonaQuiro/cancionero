@@ -223,14 +223,6 @@
     "genero": "Urbano"
   },
   {
-    "titulo": "Mojada",
-    "artista": "Vilma Palma y Vampiros",
-    "archivo": "canciones/mojada.txt",
-    "tono": "C",
-    "capo": 0,
-    "genero": "Rock"
-  },
-  {
     "titulo": "Auto rojo",
     "artista": "Vilma Palma y Vampiros",
     "archivo": "canciones/auto_rojo.txt",
@@ -583,7 +575,41 @@
     "tono": "C",
     "capo": 0,
     "genero": "Rock"
+  },{
+    "titulo": "El Último Peaje",
+    "artista": "Zambayonny",
+    "archivo": "canciones/el_ultimo_peaje.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Personalmente",
+    "artista": "Las Pelotas",
+    "archivo": "canciones/personalmente.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Vampi",
+    "artista": "Babasónicos",
+    "archivo": "canciones/vampi.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
+  },{
+    "titulo": "Encendedor",
+    "artista": "Gauchito Club",
+    "archivo": "canciones/encendedor.txt",
+    "tono": "C",
+    "capo": 0,
+    "genero": "Rock"
   }
+
+
+
+
+
+
 
 
 
