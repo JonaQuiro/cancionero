@@ -1,9 +1,10 @@
 Tono: Ab (con forma de G)
 Capo: 1.er traste
-[Intro] C  G  D  Em
-        C  G  D  Em
-        C  G  D  Em
-        C  D  G
+[Intro] 
+C  G  D  Em
+C  G  D  Em
+C  G  D  Em
+C  D  G
 
 [Primera Parte]
 
@@ -31,11 +32,11 @@ C          G       D              Em
 C           G    B7           Em
   Me desbordaron    las cicatrices
 
-[Solo 1] C  G  D  Em
-         C  G  D  Em
-Continúa después del anuncio
-         C  G  D  Em
-         C  D  G
+[Solo 1] 
+C  G  D  Em
+C  G  D  Em
+C  G  D  Em
+C  D  G
 
 [Segunda Parte]
 
@@ -83,10 +84,11 @@ C          G       D              Em
 C           G    B7           Em
   Me desbordaron    las cicatrices
 
-[Solo 2] C  G  D  Em
-         C  G  B7  Em
-         C  G  D  Em
-         C  D  G
+[Solo 2] 
+C  G  D  Em
+C  G  B7  Em
+C  G  D  Em
+C  D  G
 
 Tus cicatrices, oh-oh-oh
 
